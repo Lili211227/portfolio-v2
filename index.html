@@ -125,29 +125,28 @@
   </section>
 
   <!-- Contact Section -->
-  <section class="contact fade-in" id="contact">
-  <h2 class="fancy-heading">Contact Me</h2>
-  <form action="https://api.web3forms.com/submit" method="POST" id="myForm" novalidate>
+ <section class="contact" id="contact">
+  <h2>Contact Me</h2>
+  <form action="https://api.web3forms.com/submit" method="POST">
     <input type="hidden" name="access_key" value="a7acab2f-6580-4778-a05b-be4f6705f9b2">
-    
-    <div class="input-box">
-      <input type="text" name="full_name" id="full_name" placeholder="Please enter your full name" required>
-    </div>
 
     <div class="input-box">
-      <input type="email" name="email" id="email" placeholder="Please enter your email address" required>
+      <input type="text" name="full_name" id="full_name" placeholder="Please enter your full name">
+      <span id="nameError"></span>
+
+      <input type="email" name="email" id="email" placeholder="Please enter your email address">
+      <span id="emailError"></span>
+
+      <input type="tel" name="phone" id="phone" placeholder="Phone number (optional)">
+      <span id="phoneError"></span>
     </div>
 
-    <div class="input-box">
-      <input type="text" name="subject" id="subject" placeholder="Subject" required>
-    </div>
-
-    <div class="input-box">
-      <textarea name="message" id="message" rows="6" placeholder="Write your message here..." required></textarea>
-    </div>
+    <textarea name="message" placeholder="Your message..." rows="6" required></textarea>
+    <span id="success"></span>
 
     <div class="button-box">
       <input type="submit" value="Send Message">
+      <input type="reset" value="Reset" class="btn">
     </div>
   </form>
 </section>

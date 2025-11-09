@@ -117,3 +117,49 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+document.querySelector("form").addEventListener("submit", function(e) {
+  let valid = true;
+
+  const name = document.getElementById("full_name");
+  const email = document.getElementById("email");
+  const phone = document.getElementById("phone");
+  const nameError = document.getElementById("nameError");
+  const emailError = document.getElementById("emailError");
+  const phoneError = document.getElementById("phoneError");
+  const successMsg = document.getElementById("success");
+
+  // Reset messages
+  nameError.textContent = "";
+  emailError.textContent = "";
+  phoneError.textContent = "";
+  successMsg.textContent = "";
+
+  // Name validation
+  if (name.value.trim() === "") {
+    nameError.textContent = "Please enter your full name.";
+    valid = false;
+  }
+
+  // Email validation
+  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (!email.value.match(emailPattern)) {
+    emailError.textContent = "Please enter a valid email address.";
+    valid = false;
+  }
+
+  // Phone validation (optional)
+  const phonePattern = /^[0-9]{7,15}$/;
+  if (phone.value && !phone.value.match(phonePattern)) {
+    phoneError.textContent = "Please enter a valid phone number.";
+    valid = false;
+  }
+
+  // Stop submission if invalid
+  if (!valid) {
+    e.preventDefault();
+    return;
+  }
+
+  // Show success message
+  successMsg.textContent = "Your message has been sent successfully 💌";
+});
